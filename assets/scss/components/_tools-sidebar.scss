@@ -1,0 +1,158 @@
+/* tools-sidebar */
+.bix-tools-sidebar {
+	.bix-tools-detail {		
+		@include scrollbar;
+		.bix-tools-block {
+			.bix-tools-rtl ,
+			.bix-tools-dark {
+				.active-mode ,
+				.active-dark-mode{
+					position: relative;
+					&:after {
+						content: "\EB79";
+						width: 30px;
+						height: 30px;
+						font-size: 16px;
+						font-family: 'remixicon' !important;
+						position: absolute;
+						top: 10px;
+						right: 10px;
+						border-radius: $radius-10;
+						background-color: $black;
+						color: $white;
+						display: flex;
+						align-items: center;
+						justify-content: center;
+					}
+					img {
+						border-color: $primary;
+					}
+				}
+			}
+		}
+	}
+}
+
+.active-variant{
+	position: relative;
+	&:after {
+		font-family: 'remixicon' !important;
+		content: "\EB79";
+		height: 35px;
+		width: 35px;
+		font-size: 18px;
+		position: absolute;
+		color: $white;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+	}
+}
+
+/* Site Language dropdown - a mirror of Google's normal translate <select>:
+   same options and value, but the trigger shows the selected language's
+   flag. Compiled output lives in assets/css/style.css (no sass binary in
+   this environment, so keep both in sync by hand). */
+.jmn-lang-dd {
+	position: relative;
+
+	&__trigger {
+		display: flex;
+		align-items: center;
+		gap: 10px;
+		width: 100%;
+		padding: 10px 12px;
+		background-color: $white;
+		border: 1px solid $border-eee;
+		border-radius: $radius-10;
+		cursor: pointer;
+		text-align: left;
+		transition: border-color 0.2s;
+
+		&:hover,
+		&[aria-expanded="true"] {
+			border-color: $primary;
+		}
+	}
+
+	&__flag {
+		display: block;
+		width: 22px;
+		height: 15px;
+		object-fit: cover;
+		border-radius: 3px;
+		border: 1px solid rgba($black, 0.12);
+		flex-shrink: 0;
+	}
+
+	&__label {
+		flex: 1;
+		font-family: 'montserrat', sans-serif;
+		font-size: 13px;
+		font-weight: 500;
+		color: $black;
+		letter-spacing: 0.03rem;
+	}
+
+	&__caret {
+		font-size: 18px;
+		color: $text-color;
+		line-height: 1;
+	}
+
+	&__menu {
+		position: absolute;
+		top: calc(100% + 6px);
+		left: 0;
+		right: 0;
+		z-index: 60;
+		max-height: 260px;
+		overflow-y: auto;
+		margin: 0;
+		padding: 6px;
+		list-style: none;
+		background-color: $white;
+		border: 1px solid $border-eee;
+		border-radius: 12px;
+		box-shadow: 0 12px 28px rgba($black, 0.14);
+
+		&[hidden] {
+			display: none;
+		}
+	}
+
+	&__option {
+		display: flex;
+		align-items: center;
+		gap: 10px;
+		padding: 8px 10px;
+		border-radius: 8px;
+		cursor: pointer;
+		transition: background-color 0.15s;
+
+		&:hover,
+		&:focus {
+			background-color: $bg-lightness;
+			outline: none;
+		}
+
+		&.is-active {
+			background-color: rgba($primary, 0.08);
+
+			.jmn-lang-dd__option-label {
+				color: $primary;
+				font-weight: 600;
+			}
+		}
+	}
+
+	&__option-label {
+		font-family: 'montserrat', sans-serif;
+		font-size: 13px;
+		color: $black;
+	}
+}
+
+.open-tools {
+	transform: translateX(0) !important;
+}

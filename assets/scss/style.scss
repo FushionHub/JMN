@@ -1,0 +1,88 @@
+/*-----------------------------------------------------------------------------------
+
+Item Name: Biox - Personal Portfolio HTML Tailwind CSS Template.
+Author: Maraviya Infotech
+Version: 1
+Copyright 2024
+
+-----------------------------------------------------------------------------------*/
+
+/*---------------------------------------------------------------------------------
+    Included CSS INDEX
+-----------------------------------------------------------------------------------
+
+01. Typography
+
+02. Utilities
+    - mixing
+    - variables
+
+03. components
+    - header
+    - footer
+    - common
+    - tools-sidebar
+
+04. Layout 
+    - hero
+    - achievement
+    - services
+    - testimonials
+    - blog
+    - modal
+
+05. Pages
+    - about
+    - single-projects
+    - projects
+    - prices
+    - faq
+
+-----------------------------------------------------------------------------------*/
+
+/*
+ * IMPORTANT - BUILD SOURCE, NOT THE SHIPPED STYLESHEET.
+ *
+ * assets/css/style.css is the compiled, deployed artifact and is what the
+ * browser loads. This manifest is kept in sync with the section order that is
+ * actually present in that compiled file, so a future rebuild reproduces the
+ * current UI exactly instead of silently changing it.
+ *
+ * pages/_resume.scss is deliberately NOT imported: it was never part of the
+ * compiled build. resume.php styles its panels with Tailwind utilities, so
+ * importing it would inject new rules and alter the live layout.
+ *
+ * If you regenerate style.css, diff the output against the shipped file
+ * before deploying - do not overwrite it blind.
+ */
+
+/* Typography ( Import Typography ) */
+@import "base/_typography";
+
+/* Utilities ( Import Utilities ) */
+@import "utilities/_mixing";
+@import "utilities/_variables";
+
+/* components ( Import components ) */
+@import "components/_common";
+
+/* Pages that render inside the component band of the compiled build */
+@import "pages/_single-projects";
+@import "pages/_projects";
+@import "pages/_prices";
+@import "pages/_faq";
+
+@import "components/_header";
+@import "components/_footer";
+@import "components/_tools-sidebar";
+
+/* Layouts ( Import Layouts ) */
+@import "layouts/_hero";
+@import "layouts/_achievement";
+@import "layouts/_services";
+@import "layouts/_testimonials";
+@import "layouts/_blog";
+@import "layouts/_modal";
+
+/* Pages ( Import Pages ) */
+@import "pages/_about";

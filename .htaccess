@@ -1,0 +1,129 @@
+# ==============================================================================
+# Production Apache Configuration & Security Hardening
+# Jamachi Maurice Mauricennadi Portfolio Platform
+# ==============================================================================
+
+# Directory options
+Options -Indexes -MultiViews +FollowSymLinks
+
+# Default document
+DirectoryIndex index.php
+
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+
+    # NOTE: No "RewriteBase" on purpose - mod_rewrite derives the directory
+    # prefix automatically, so clean URLs work both at the domain root
+    # (https://example.com/) and inside a sub-folder (https://example.com/JMN/).
+
+    # Pass the Authorization header through to PHP (bearer/API tokens)
+    RewriteRule .* - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]
+
+    # ------------------------------------------------------------------
+    # 1. Deny hidden files (.env, .git, .htpasswd, backup files, ...)
+    #    .well-known stays open for ACME / verification challenges.
+    # ------------------------------------------------------------------
+    RewriteRule (^|/)\.(?!well-known) - [F]
+
+    # ------------------------------------------------------------------
+    # 2. Deny sensitive / source files
+    #    llms.md and llms.txt are intentionally public for AI agents.
+    # ------------------------------------------------------------------
+    RewriteCond %{REQUEST_URI} !llms\.(md|txt)$
+    RewriteRule \.(md|json|lock|scss|map|log|ini|env|sql|bak|old|dist|yml|yaml|git|htaccess|user\.ini)$ - [F,L]
+
+    # ------------------------------------------------------------------
+    # 3. Deny direct HTTP access to application internals.
+    #    Only the three state-changing endpoints stay reachable.
+    # ------------------------------------------------------------------
+    RewriteCond %{REQUEST_URI} !/config/(mailer|cookie_consent|indexnow)\.php$
+    RewriteCond %{REQUEST_URI} !/indexnow\.php$
+    RewriteRule ^(config|data|includes|storage|bin|tools)/ - [F,L]
+
+    # ------------------------------------------------------------------
+    # 4. Routing
+    #    This project is deliberately NOT path-routed: every page is a
+    #    first-class .php resource and every canonical URL / sitemap entry
+    #    points at that exact file. Adding extension-less aliases here would
+    #    create a second URL per page and split ranking signals.
+    # ------------------------------------------------------------------
+</IfModule>
+
+# ==============================================================================
+# Security Headers (mod_headers) - PHP sends the same set as authoritative
+# ==============================================================================
+<IfModule mod_headers.c>
+    Header always set X-Content-Type-Options "nosniff"
+    Header always set X-Frame-Options "SAMEORIGIN"
+    Header always set X-XSS-Protection "0"
+    Header always set Referrer-Policy "strict-origin-when-cross-origin"
+    Header always set Permissions-Policy "camera=(), microphone=(), geolocation=(), payment=(), usb=(), interest-cohort=()"
+    Header always set Cross-Origin-Opener-Policy "same-origin"
+    Header always set Cross-Origin-Resource-Policy "same-origin"
+    # HSTS is only meaningful over HTTPS - enable it on the real server.
+    # Header always set Strict-Transport-Security "max-age=31536000; includeSubDomains"
+</IfModule>
+
+# ==============================================================================
+# Do not advertise the server version
+# ==============================================================================
+<IfModule mod_headers.c>
+    Header unset X-Powered-By
+    Header unset Server
+</IfModule>
+
+# ==============================================================================
+# Asset Caching & Performance (mod_expires + mod_headers)
+# Versioned/static assets are immutable: 1 year + immutable directive so
+# repeat visits on ANY browser serve from disk/memory cache without
+# revalidation. HTML/PHP is never cached here (dynamic + CSRF per session).
+# ==============================================================================
+<IfModule mod_expires.c>
+    ExpiresActive On
+    ExpiresDefault "access plus 1 month"
+    ExpiresByType text/css "access plus 1 year"
+    ExpiresByType application/javascript "access plus 1 year"
+    ExpiresByType text/javascript "access plus 1 year"
+    ExpiresByType image/jpeg "access plus 1 year"
+    ExpiresByType image/png "access plus 1 year"
+    ExpiresByType image/gif "access plus 1 year"
+    ExpiresByType image/webp "access plus 1 year"
+    ExpiresByType image/avif "access plus 1 year"
+    ExpiresByType image/svg+xml "access plus 1 year"
+    ExpiresByType image/x-icon "access plus 1 year"
+    ExpiresByType font/woff "access plus 1 year"
+    ExpiresByType font/woff2 "access plus 1 year"
+    ExpiresByType font/ttf "access plus 1 year"
+    ExpiresByType application/font-woff "access plus 1 year"
+    ExpiresByType application/pdf "access plus 1 month"
+    # Crawlers must always re-validate these
+    ExpiresByType text/plain "access plus 0 seconds"
+    ExpiresByType application/xml "access plus 0 seconds"
+    ExpiresByType text/html "access plus 0 seconds"
+</IfModule>
+<IfModule mod_headers.c>
+    # Immutable: browsers never revalidate these during max-age (all browsers)
+    <FilesMatch "\.(css|js|jpg|jpeg|png|gif|webp|avif|svg|ico|woff|woff2|ttf|pdf)$">
+        Header set Cache-Control "public, max-age=31536000, immutable"
+    </FilesMatch>
+    # HTML is dynamic — always revalidate, never store
+    <FilesMatch "\.(php|html)$">
+        Header set Cache-Control "no-store, must-revalidate"
+    </FilesMatch>
+</IfModule>
+
+# ==============================================================================
+# Compression
+# ==============================================================================
+<IfModule mod_deflate.c>
+    AddOutputFilterByType DEFLATE text/html text/plain text/xml text/css
+    AddOutputFilterByType DEFLATE application/javascript application/json
+    AddOutputFilterByType DEFLATE image/svg+xml application/xml
+</IfModule>
+
+# ==============================================================================
+# Clickjacking / MIME sniffing hardening for unknown types
+# ==============================================================================
+<IfModule mod_mime.c>
+    AddType text/plain .md
+</IfModule>

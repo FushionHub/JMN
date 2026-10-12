@@ -1,0 +1,107 @@
+/* Faq */
+.accordion-button {
+    &::after {
+        background-image: none;
+        content: "+";
+        font-weight: 500;
+        color: $text-777;
+        font-size: 24px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    &:not(.collapsed){
+        &::after{
+            transform: none;
+            background-image: none;
+            content: "-";
+            font-weight: 500;
+            color: $text-777;
+            font-size: 24px;
+        }
+    }
+}
+
+.bix-faq {
+    margin-bottom: -20px;
+    .accordion-button{
+        font-weight: 500;
+        &:not(.collapsed) {
+            color: $black-off;
+        }
+    }
+    .accordion-item {
+        background: transparent;
+        border: 0;
+        &:last-of-type>.accordion-header {
+            .accordion-button.collapsed{
+                border-radius: $radius-10;
+            }
+        }
+        .accordion-header {
+            margin-bottom: 20px;
+            border: 1px solid $border-eee;
+            border-radius: $radius-10;
+            .accordion-button {
+                border-radius: $radius-10;
+                border: 0;
+                box-shadow: none;
+                background-color: $bg-lightness;
+            }
+        }
+        .accordion-body {
+            border-radius: $radius-20;
+            margin-bottom: 20px;
+            border: 1px solid $border-eee;
+        }
+    }
+}
+
+/* Responsive */
+@media screen and (max-width: 1399px) {
+    .section-faq {
+        &::before {
+            top: -85px;
+            height: 85px;
+        }
+    }
+}
+
+@media screen and (max-width: 1199px) {
+    .section-faq {
+        &::before {
+            top: -74px;
+            height: 74px;
+        }
+    }
+}
+
+@media screen and (max-width: 991px) {
+    .section-faq {
+        &::before {
+            top: -60px;
+            height: 60px;
+        }
+    }
+    .bix-faq-img {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 767px) {
+    .section-faq {
+        &::before {
+            top: -45px;
+            height: 45px;
+        }
+    }
+}
+
+@media screen and (max-width: 575px) {
+    .section-faq {
+        &::after {
+            width: 80px;
+            height: 80px;
+        }
+    }
+}

@@ -1,0 +1,87 @@
+# ==============================================================================
+# robots.txt - JMN (jmn.morexweb.com)
+# Portfolio of Jamachi Maurice Mauricennadi, Founder/CTO of
+# MOREX WEB ENTERPRISE GROUP OF COMPANIES LTD (BN 8721238)
+#
+# This site is intentionally open to search engines, answer engines and
+# AI assistants. Nothing here is paywalled, private or member-only.
+# ==============================================================================
+
+User-agent: *
+Allow: /
+Crawl-delay: 1
+Disallow: /config/
+Disallow: /data/
+Disallow: /includes/
+Disallow: /storage/
+Disallow: /bin/
+Disallow: /admin/
+Disallow: /*?contact_status=
+Disallow: /*?utm_source=
+Disallow: /*?utm_medium=
+Disallow: /*?utm_campaign=
+
+# ------------------------------------------------------------------------------
+# Answer engines / AI crawlers - explicitly welcome.
+# They get the same open access as everyone else; the only files they are asked
+# not to fetch are the application internals listed above.
+# ------------------------------------------------------------------------------
+User-agent: GPTBot
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Claude-SearchBot
+Allow: /
+
+User-agent: Claude-User
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Perplexity-User
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: CCBot
+Allow: /
+
+User-agent: Applebot-Extended
+Allow: /
+
+User-agent: meta-externalagent
+Allow: /
+
+User-agent: cohere-ai
+Allow: /
+
+User-agent: Amazonbot
+Allow: /
+
+# ------------------------------------------------------------------------------
+# Explicitly refused: training-data scrapers that ignore site terms.
+# ------------------------------------------------------------------------------
+User-agent: SemrushBot
+Disallow: /
+
+User-agent: AhrefsBot
+Disallow: /
+
+User-agent: DotBot
+Disallow: /
+
+# ------------------------------------------------------------------------------
+# Machine-readable entry points
+# ------------------------------------------------------------------------------
+Sitemap: https://jmn.morexweb.com/sitemap.xml
+Host: jmn.morexweb.com

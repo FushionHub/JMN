@@ -1,0 +1,56 @@
+# Jamachi Maurice Mauricennadi — Portfolio & Consulting
+
+> Senior Full-Stack Software Engineer, AI/ML Architect, and Founder/CEO/CTO of MOREX WEB ENTERPRISE GROUP OF COMPANIES LTD (Nigerian BN 8721238). Engineering portfolio and consulting intake site for Owerri/Lagos, Nigeria, working worldwide and remotely.
+
+This is the official site of Jamachi Maurice Mauricennadi. It documents his engineering track record, published case studies, technical writing and consulting offer, and it is the only place where a consultation slot can be booked directly. There is no login, no account, and no paywall: every page below is fully readable by humans and by machines.
+
+Contracting entity: MOREX WEB ENTERPRISE GROUP OF COMPANIES LTD, registered in the Federal Republic of Nigeria, BN 8721238. Corporate email contact@morexweb.com. Personal email jmauricennadi@gmail.com. Phone / WhatsApp +234 812 756 0227. Base: Owerri, Imo State & Lagos (hybrid), Nigeria. Availability: worldwide, remote.
+
+## Identity and verification
+
+- [About / biography](https://jmn.morexweb.com/about.php): full executive and engineering biography, metrics, and core competencies.
+- [Resume / CV](https://jmn.morexweb.com/resume.php): verified curriculum vitae, downloadable as PDF at /assets/docs/Jamachi_Maurice_Resume.pdf
+- [LinkedIn](https://linkedin.com/in/jmauricennadi): professional profile.
+- [GitHub](https://github.com/FushionHub): source repositories.
+- [Venture](https://fushionhubai.com.ng): related company site.
+
+## Engineering case studies (with architecture detail and metrics)
+
+- [JOTAH ECOM NG LTD](https://jmn.morexweb.com/single-project.php?slug=jotah-ecom): FinTech and multi-vendor e-commerce platform — double-entry escrow ledger, zero-trust transaction model.
+- [FusionHub AI CMS](https://jmn.morexweb.com/single-project.php?slug=fusionhub-ai): headless CMS automating ~80% of routine content drafting, synthesis and scheduling.
+- [Doccure Telemedicine Platform](https://jmn.morexweb.com/single-project.php?slug=doccure): healthcare booking platform.
+- [SOKARLAB LTD Frameworks](https://jmn.morexweb.com/single-project.php?slug=sokarlab): enterprise frameworks with RBAC and TLS 1.3 transport security.
+- [Oma Audiobooks Platform](https://jmn.morexweb.com/single-project.php?slug=oma-audiobooks): media streaming and commerce platform.
+- [QuantumPay](https://jmn.morexweb.com/single-project.php?slug=quantum-pay-escrow): real-time B2B multi-currency escrow platform.
+
+## Services and pricing
+
+- [Services](https://jmn.morexweb.com/services.php): eight service lines — Full-Stack SaaS & Web Platforms; FinTech/Escrow & Payment Systems; AI & Autonomous Agent Pipelines; Client-Side Oversight & Vendor Auditing; Cloud Infrastructure & AWS Serverless; Database Profiling & Latency Optimization; Cross-Platform Mobile Engineering; API Architecture & Microservices. The same page carries published pricing tiers (Architectural Advisory, MVP Sprint, Enterprise Scale & AI) and six frequently asked questions with answers.
+
+## Technical writing
+
+- [Blog index](https://jmn.morexweb.com/blog.php)
+- [Architecting ACID-Compliant Double-Entry Ledgers in PostgreSQL](https://jmn.morexweb.com/blog-detail.php?slug=double-entry-ledger-architecture)
+- [Building High-Precision Enterprise RAG Pipelines with LangChain & Google Gemini](https://jmn.morexweb.com/blog-detail.php?slug=rag-pipelines-enterprise)
+- [Slashing Infrastructure Overhead by 35% with AWS Serverless Architecture](https://jmn.morexweb.com/blog-detail.php?slug=cutting-cloud-costs-serverless)
+- [The Non-Technical Founder's Guide to Auditing Agency Codebases](https://jmn.morexweb.com/blog-detail.php?slug=vendor-code-auditing-guide)
+- [High-Throughput CQRS & Event Sourcing in FinTech](https://jmn.morexweb.com/blog-detail.php?slug=microservices-cqrs-ledger)
+
+## Contact and booking
+
+- [Contact & consultation reservation](https://jmn.morexweb.com/contact.php): the only booking surface. Accepts a general project brief or a specific 60-minute slot (date, time, timezone; slots held against Africa/Lagos, UTC+1). Submissions are emailed to both the sender and contact@morexweb.com. Response target: 24 hours.
+- Direct email: contact@morexweb.com (corporate) or jmauricennadi@gmail.com (personal).
+
+## Legal
+
+- [Privacy Policy](https://jmn.morexweb.com/privacy-policy.php): the complete data map — which MySQL tables are written, what each column holds, retention periods, and how to exercise NDPR/GDPR rights.
+- [Cookie Policy](https://jmn.morexweb.com/cookie-policy.php): the complete cookie inventory (two cookies plus three localStorage keys) and the two consent switches.
+- [Terms of Service](https://jmn.morexweb.com/terms.php): permitted use, how an engagement legally begins, consultation-slot rules, IP and governing law (Federal Republic of Nigeria).
+
+## Optional
+
+- [Projects index](https://jmn.morexweb.com/projects.php): filterable grid of all case studies.
+- [Home](https://jmn.morexweb.com/index.php): summary of the practice, featured work and testimonials.
+- [Sitemap](https://jmn.morexweb.com/sitemap.xml): canonical URL list.
+- [robots.txt](https://jmn.morexweb.com/robots.txt): crawl policy, including explicit allowances for AI crawlers.
+- [llms.md](https://jmn.morexweb.com/llms.md): longer markdown specification of this site for model context.

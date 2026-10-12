@@ -1,0 +1,64 @@
+/* Prices */
+.bix-services-box {
+    @include ease3;
+    border: 1px solid $border-eee;
+    border-radius: 30px;
+    text-align: center;
+    background: $bg-lightness;
+    &:hover {
+        border-color: $black-0;
+        .services-header {
+            border-color: $black-0;
+        }
+    }
+    .services-header {
+        @include ease3;
+        padding: 20px;
+        border-bottom: 1px solid $border-eee;
+        span {
+            font-size: 15px;
+            font-weight: 600;
+            color: $text-777;
+        }
+        h4 {
+            font-size: 42px;
+            font-weight: 700;
+            color: $black;
+        }
+    }
+    .services-inner-contact {
+        padding: 20px;
+        ul {
+            margin-bottom: 16px;
+            li {
+                padding: 8px 0;
+                font-size: 15px;
+                line-height: 22px;
+                font-weight: 400;
+                color: $text-777;
+            }
+        }
+        .buttons {
+            display: flex;
+            justify-content: center;
+        }
+    }
+}
+
+/* Responsive */
+@media screen and (max-width: 767px) {
+    .bix-services-box {
+        .services-header {
+            h4 {
+                font-size: 34px;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 575px) {
+    .bix-services-box{
+        max-width: 320px;
+        margin: auto;
+    }
+}

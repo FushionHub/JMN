@@ -1,0 +1,4 @@
+# Block direct HTTP access to admin internals.
+# The auth/layout libraries are require_once'd by the admin pages but must
+# never be reachable as standalone resources.
+Require all denied
