@@ -339,6 +339,7 @@ h4, h5, h6 {
   display: -webkit-box;
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
+  overflow: hidden;
 }
 
 .bix-reviews-details .bix-input input::-webkit-input-placeholder, .bix-reviews-details .bix-input textarea::-webkit-input-placeholder {
@@ -954,6 +955,7 @@ ul#bix_activity li.active a {
   display: -webkit-box;
   -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
+  overflow: hidden;
 }
 .bix-achievement .bix-achievement-inner .bix-achievement-box.left:after {
   content: "";
@@ -1031,6 +1033,18 @@ ul#bix_activity li.active a {
   }
   .bix-achievement .bix-border-r .achievement-year:after {
     top: 87px;
+  }
+  /* Mobile readability: 3-line clamps hide most of the text on narrow
+     cards and leak unclipped overflow. Show full text on small screens;
+     desktop keeps the uniform teaser clamps. */
+  .bix-achievement .bix-achievement-inner .bix-achievement-box p,
+  .bix-blog-box .blog-contact h4,
+  .bix-blog-box .blog-contact p,
+  .skill-box-contact p,
+  .bix-client .inner-details .client-details p {
+    display: block;
+    -webkit-line-clamp: unset;
+    overflow: visible;
   }
 }
 /* services */
@@ -1131,11 +1145,13 @@ ul#bix_activity li.active a {
   display: -webkit-box;
   -webkit-line-clamp: 1;
   -webkit-box-orient: vertical;
+  overflow: hidden;
 }
 .bix-blog-box .blog-contact p {
   display: -webkit-box;
   -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
+  overflow: hidden;
 }
 
 /* modal */

@@ -265,7 +265,7 @@ Cover images can be uploaded directly from the editor. Uploads are validated wit
 ### Responsive design (public + admin)
 
 Both the public site and the back office are verified at 375px (mobile), 768px (tablet), 1440px and 1920px (desktop) with **zero horizontal page overflow**:
-- **Public:** Tailwind responsive prefixes + `viewport` meta; hero, metric cards, sections and cookie banner stack cleanly; full-viewport-width sections with centered `max-w` containers on desktop.
+- **Public:** Tailwind responsive prefixes + `viewport` meta; hero, metric cards, sections and cookie banner stack cleanly; full-viewport-width sections with centered `max-w` containers on desktop. Text line-clamps (resume timeline, blog cards, skills, testimonials) are lifted below 767px so mobile shows full text instead of `...` cutoffs; base clamp rules carry the required `overflow: hidden` so desktop teasers clip cleanly without spill.
 - **Admin (full-screen):** `.admin-content` has no max-width cap — tables, charts and forms use 100% of the available viewport width on desktop (verified 1631px content at 1920px viewport). Sidebar collapses to off-canvas with a burger toggle below 780px; chart grid collapses to single-column below 1080px; grid children carry `min-width: 0` and chart wrappers `overflow: hidden` + canvas `max-width: 100%` so Chart.js pixel widths can never force page overflow; tables scroll internally via `.admin-table-wrap`.
 
 ---
