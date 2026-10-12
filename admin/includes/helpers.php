@@ -65,6 +65,28 @@ function admin_handle_image_upload(array $file, string $subdir = 'blog/uploads')
     }
     @chmod($dest, 0644);
 
+    // Best-effort WebP variant alongside the original (same append-style
+    // naming as bin/optimize-images.php) so picture_img() serves it.
+    // Never fails the upload — encoding issues are silently skipped.
+    if (in_array($ext, ['jpg', 'png'], true)) {
+        try {
+            $src = ($ext === 'png') ? @imagecreatefrompng($dest) : @imagecreatefromjpeg($dest);
+            if ($src !== false) {
+                if ($ext === 'png') {
+                    imagepalettetotruecolor($src);
+                    imagealphablending($src, false);
+                    imagesavealpha($src, true);
+                }
+                if (@imagewebp($src, $dest . '.webp', 80) === false) {
+                    @unlink($dest . '.webp');
+                }
+                imagedestroy($src);
+            }
+        } catch (Throwable $e) {
+            @unlink($dest . '.webp');
+        }
+    }
+
     return 'assets/img/' . $subdir . '/' . $name;
 }
 
