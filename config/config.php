@@ -27,7 +27,7 @@ if (!defined('APP_INITIALIZED')) {
     }
 
     if (!defined('SITE_DOMAIN')) {
-        define('SITE_DOMAIN', getenv('SITE_DOMAIN') ?: 'jmn.morexweb.com');
+        define('SITE_DOMAIN', getenv('SITE_DOMAIN') ?: 'jmn.test');
     }
 
     if (!defined('BASE_URL')) {
